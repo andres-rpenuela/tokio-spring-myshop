@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head(title='Tokio Shop')"></head>
+<body>
+<header th:replace="fragments/header"></header>
+
+<div class="container">
+    <div class="container d-flex justify-content-center">
+        <figure class="card-product card-product-grid card-lg"> <a href="#" class="img-wrap" data-abc="true"> <img th:src="@{'/images/' + ${product.image}}"/> </a>
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true" th:text="${product.name}"></a>
+                        <span th:text="${product.description}"></span> </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa-product fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                            <span class="rated">4.0/5</span> </div>
+                    </div>
+                </div>
+            </figcaption>
+            <div class="bottom-wrap-payment">
+                <figcaption class="info-wrap">
+                    <div class="row">
+                        <div class="col-md-9 col-xs-9"> <a href="#" class="title" data-abc="true" th:text="${#numbers.formatCurrency(product.price)}"></a>
+                            <span class="rated">Ha bajado de precio</span> </div>
+                        <div class="col-md-3 col-xs-3">
+                            <div class="rating text-right">Oferta</div>
+                        </div>
+                    </div>
+                </figcaption>
+            </div>
+            <div class="bottom-wrap"> <a href="#" class="btn btn-sm btn-outline-primary float-right" data-abc="true">Comprar </a>
+                <div class="price-wrap"> <a href="#" class="btn btn-sm btn-outline-info float-left" data-abc="true">Añadir a la Wishlist</a> </div>
+            </div>
+        </figure>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer"></footer>
+
+</body>
+</html>
