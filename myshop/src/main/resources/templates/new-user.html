@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head :: head(title='Tokio Shop')"></head>
+<head th:replace="~{/fragments/head :: head(title='Tokio Shop')}"></head>
 <body>
-<header th:replace="fragments/header"></header>
+<header th:replace="~{/fragments/header}"></header>
 <main>
     </br></br>
     <div class="container">
@@ -12,7 +12,7 @@
     </div>
 </main>
 
-<head th:replace="fragments/footer"></head>
+<head th:replace="~{/fragments/footer}"></head>
 
 </body>
 </html>

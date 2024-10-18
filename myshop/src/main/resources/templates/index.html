@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head :: head(title='Tokio Shop')"></head>
+<head th:replace="~{/fragments/head :: head(title='Tokio Shop')}"></head>
 <body>
-<header th:replace="fragments/header"></header>
+<header th:replace="~{/fragments/header}"></header>
 <main>
 
-    <section th:replace="fragments/section-catalog"></section>
+    <section th:replace="~{/fragments/section-catalog}"></section>
 
     <div class="album py-5 bg-light">
         <div class="container">
@@ -32,7 +32,7 @@
     </div>
 </main>
 
-<footer th:replace="fragments/footer"></footer>
+<footer th:replace="~{/fragments/footer}"></footer>
 
 </body>
 </html>

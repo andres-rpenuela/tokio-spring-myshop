@@ -1,3 +1,4 @@
+/*
 package com.tokioschool.myshop.security;
 
 import com.tokioschool.myshop.domain.Role;
@@ -19,10 +20,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+*/
 /**
  * Service que permite validar las credenciales de un usuario
  * contra la base de datos e iniciar la sesión de usuario
- */
+ *//*
+
 @Service
 public class TokioUserDetailsService implements UserDetailsService {
 
@@ -31,12 +34,14 @@ public class TokioUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
 
-    /**
+    */
+/**
      * Valida las credenciales de usuario
      * @param username El nombre de usuario
      * @return Los detalles del usuario que inicia la sesión
      * @throws UsernameNotFoundException En caso de que el usuario no exista
-     */
+     *//*
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -59,3 +64,4 @@ public class TokioUserDetailsService implements UserDetailsService {
                 user.isActive(), true, true, true, authorities);
     }
 }
+*/
