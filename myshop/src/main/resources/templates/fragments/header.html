@@ -1,4 +1,7 @@
-<header xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<header th:fragment="header()" xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
             <a th:href="@{/}" class="navbar-brand d-flex align-items-center">
@@ -6,9 +9,27 @@
                 <strong>Tokio Shop</strong>
             </a>
 
-            <div sec:authorize="isAuthenticated()" class="align-items-right">
-                <a th:href="@{/profile}" title="Ver perfil"><img th:src="@{/images/users/user-profile.png}" height="40px" width="40px"/></a>
-                <a class="btn btn-outline-primary" th:href="@{/logout}">Cerrar sesión</a>
+            <div sec:authorize="isAuthenticated()" class="align-items-right navbar-brand nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false" >
+                    <strong sec:authentication="name"></strong>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li class="nav-item" >
+                        <a th:href="@{/profile}" title="Ver perfil">
+                            <img th:src="@{/images/users/user-profile.png}" height="40px" width="40px"/>
+                            <strong sec:authentication="name"></strong>
+                        </a>
+                    <li>
+
+                    <li><hr class="dropdown dropdown-divider"></li>
+                    <li class="nav-item" >
+                        <a th:href="@{/registration}" title="Alta Usuario">Alta</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a th:href="@{/logout}">Cerrar sesión</a>
+                    </li>
             </div>
 
             <div sec:authorize="!isAuthenticated()" class="align-items-right">

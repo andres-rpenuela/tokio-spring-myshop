@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{/fragments/head :: head(title='Tokio Shop')}"></head>
 <body>
 <header th:replace="~{/fragments/header}"></header>
 <main>
 
-    <section th:replace="~{/fragments/section-catalog}"></section>
+    <section th:replace="~{/fragments/section-catalog :: sectionCatalaog()}"></section>
 
     <div class="album py-5 bg-light">
         <div class="container">

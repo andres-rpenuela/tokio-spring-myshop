@@ -1,4 +1,8 @@
-<section class="py-5 text-center container" xmlns:th="http://www.w3.org/1999/xhtml">
+<section th:fragment="sectionCatalaog()"
+         xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:th="http://www.thymeleaf.org"
+         xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+         class="py-5 text-center container">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light" th:text="#{catalog}"></h1>

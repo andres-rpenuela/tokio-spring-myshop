@@ -4,6 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -11,13 +15,33 @@ public class WebSecurityConfig {
 
     @Bean("filterSecurityChainMainly")
     public SecurityFilterChain filterChainMainly(HttpSecurity http) throws Exception {
-        http.securityMatcher("/myshop/**","/login","/logout").authorizeRequests(authorizeRequests ->
-                authorizeRequests.anyRequest().authenticated());
+        http.securityMatcher("/**","/myshop/**","/login","/logout")
+                .authorizeHttpRequests(req -> req.anyRequest().authenticated());
         http.formLogin(Customizer.withDefaults());
         http.logout(Customizer.withDefaults());
         http.csrf(Customizer.withDefaults());
         http.cors(Customizer.withDefaults());
         return http.build();
+    }
+
+    // Login in memory without encrypt password
+    // link: https://medium.com/@sahinutkuonur/how-to-implement-spring-security-in-memory-authentication-821d4d02bb93
+    @Bean
+    public UserDetailsService users() {
+        // The builder will ensure the passwords are encoded before saving in memory
+        UserDetails user = User.builder()
+                .username("user")
+                .password("{noop}123")
+                .roles("USER") //ROLE_{...}
+                .authorities("READ")
+                .build();
+        UserDetails admin = User.builder()
+                .username("admin")
+                .password("{noop}123")
+                .roles("USER", "ADMIN") //ROLE_{...}
+                .authorities("READ,WRITE")
+                .build();
+        return new InMemoryUserDetailsManager(user, admin);
     }
 }
 
