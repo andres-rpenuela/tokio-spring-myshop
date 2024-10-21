@@ -9,7 +9,7 @@
             <p class="lead text-muted" th:text="#{catalog-message}"></p>
             <p>
                 <a href="#" class="btn btn-info my-2" th:text="#{last-units}"></a>
-                <a th:href="@{/registration}" class="btn btn-primary my-2" th:text="#{create-account}"></a>
+                <a th:href="@{/registration}" class="btn btn-primary my-2" th:text="#{create-account}"  sec:authorize="hasAnyAuthority('WRITE')"></a>
             </p>
         </div>
     </div>

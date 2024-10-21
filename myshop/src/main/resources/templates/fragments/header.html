@@ -25,11 +25,15 @@
 
                     <li><hr class="dropdown dropdown-divider"></li>
                     <li class="nav-item" >
-                        <a th:href="@{/registration}" title="Alta Usuario">Alta</a>
+                        <a th:href="@{/edit-user}" title="Editar Perfil">Editar</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a th:href="@{/registration}" title="Alta Usuario" sec:authorize="hasAnyAuthority('WRITE')">Alta</a>
                     </li>
                     <li class="nav-item" >
                         <a th:href="@{/logout}">Cerrar sesión</a>
                     </li>
+                </ul>
             </div>
 
             <div sec:authorize="!isAuthenticated()" class="align-items-right">

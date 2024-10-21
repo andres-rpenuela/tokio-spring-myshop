@@ -39,7 +39,7 @@ public class WebSecurityConfig {
                 .username("admin")
                 .password("{noop}123")
                 .roles("USER", "ADMIN") //ROLE_{...}
-                .authorities("READ,WRITE")
+                .authorities("READ","WRITE")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
     }
